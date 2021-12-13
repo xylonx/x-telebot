@@ -1,0 +1,24 @@
+application:
+  cronjob_pool_size: 20
+
+telegram_bot:
+  api_key:
+
+picture:
+  sync: true
+  general:
+    type: s3
+    s3:
+      endpoint:
+      access_id:
+      access_secret:
+      bucket:
+      region:
+  pornographic:
+    type: local
+    local:
+      dir: ./images/pornographic
+  online:
+
+crypto_coin:
+  api_key:
