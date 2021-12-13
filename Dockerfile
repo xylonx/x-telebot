@@ -17,4 +17,4 @@ COPY --from=Build /build/main ./${PROJECT_NAME}
 RUN echo "./${PROJECT_NAME} -c=config.yaml" >>start.sh && \
     chmod 755 -R /opt/${PROJECT_NAME}
 
-RUN ./start.sh
+CMD ./start.sh
