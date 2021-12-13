@@ -12,7 +12,7 @@ FROM xylonx/cn-ubuntu:latest as Prod
 ARG PROJECT_NAME=x-telebot
 
 WORKDIR /opt/${PROJECT_NAME}
-COPY --from=Build /build/main .
+COPY --from=Build /build/main ./${PROJECT_NAME}
 
 RUN echo "./${PROJECT_NAME} -c=config.yaml" >>start.sh && \
     chmod 755 -R /opt/${PROJECT_NAME}

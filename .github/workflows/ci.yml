@@ -18,10 +18,10 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: Set Git tag
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GIT_TAG
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/x-telebot:${{ GIT_TAG }}, ${{ secrets.DOCKER_HUB_USERNAME }}/latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/x-telebot:${{ env.RELEASE_VERSION }}, ${{ secrets.DOCKER_HUB_USERNAME }}/latest
