@@ -5,7 +5,7 @@ LABEL maintainer="xylonx"
 WORKDIR /build
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main -ldflags="-w -s" main.go
+RUN GOOS=linux GOARCH=amd64 go build -o main -ldflags="-w -s" main.go
 
 FROM xylonx/cn-ubuntu:latest as Prod
 
